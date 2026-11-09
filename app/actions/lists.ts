@@ -16,7 +16,7 @@ export async function setMovieStatus(
   movie: MoviePreview,
   status: ListStatus | null
 ): Promise<SetStatusResult> {
-  const supabase = createClient();
+  const supabase = await createClient();
   const {
     data: { user },
   } = await supabase.auth.getUser();
