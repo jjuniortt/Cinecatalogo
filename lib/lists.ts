@@ -5,7 +5,7 @@ import type { ListStatus, SavedMovie } from "./list-types";
 /** Usuário logado, ou null (também null quando o Supabase não está configurado). */
 export async function getCurrentUser() {
   if (!supabaseConfigured()) return null;
-  const supabase = createClient();
+  const supabase = await createClient();
   const { data } = await supabase.auth.getUser();
   return data.user;
 }
@@ -17,7 +17,7 @@ export async function getMyMovieStatus(
   const user = await getCurrentUser();
   if (!user) return { signedIn: false, status: null };
 
-  const supabase = createClient();
+  const supabase = await createClient();
   const { data } = await supabase
     .from("user_movies")
     .select("status")
@@ -33,7 +33,7 @@ export async function getSavedMovies(status: ListStatus): Promise<SavedMovie[]> 
   const user = await getCurrentUser();
   if (!user) return [];
 
-  const supabase = createClient();
+  const supabase = await createClient();
   const { data, error } = await supabase
     .from("user_movies")
     .select("movie_id, title, poster_path, release_date, vote_average, status, updated_at")

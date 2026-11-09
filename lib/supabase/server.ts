@@ -3,8 +3,8 @@ import { cookies } from "next/headers";
 import { supabaseConfig } from "./config";
 
 /** Cliente do Supabase para Server Components, Server Actions e Route Handlers. */
-export function createClient() {
-  const cookieStore = cookies();
+export async function createClient() {
+  const cookieStore = await cookies();
   const { url, anonKey } = supabaseConfig();
 
   return createServerClient(url, anonKey, {
