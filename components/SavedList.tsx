@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import ListTabs from "@/components/ListTabs";
 import { getCurrentUser, getSavedMovies } from "@/lib/lists";
 import { LIST_META, type ListStatus, type SavedMovie } from "@/lib/list-types";
 import { imageUrl } from "@/lib/tmdb";
@@ -13,7 +14,7 @@ export default async function SavedList({ status }: { status: ListStatus }) {
 
   if (!user) {
     return (
-      <Shell title={meta.label}>
+      <Shell status={status} title={meta.label}>
         <EmptyState
           title="Entre para ver suas listas"
           text={
@@ -40,6 +41,7 @@ export default async function SavedList({ status }: { status: ListStatus }) {
 
   return (
     <Shell
+      status={status}
       title={meta.label}
       subtitle={
         movies.length === 1
@@ -74,16 +76,21 @@ export default async function SavedList({ status }: { status: ListStatus }) {
 }
 
 function Shell({
+  status,
   title,
   subtitle,
   children,
 }: {
+  status: ListStatus;
   title: string;
   subtitle?: string;
   children: React.ReactNode;
 }) {
   return (
     <main className="relative z-10 px-6 pb-16 pt-32 md:px-12">
+      <div className="mb-8">
+        <ListTabs current={status} />
+      </div>
       <header className="mb-8">
         <h1 className="font-display text-3xl uppercase tracking-tight md:text-5xl">
           <span className="text-gradient">{title}</span>

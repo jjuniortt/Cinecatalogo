@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import ListTabs from "@/components/ListTabs";
 import { imageUrl } from "@/lib/tmdb";
 import type { Movie } from "@/lib/types";
 
@@ -96,6 +97,10 @@ export default function Hero({ movie }: { movie: Movie }) {
               </svg>
               Mais informações
             </Link>
+          </div>
+
+          <div className="mt-6 animate-fade-up [animation-delay:400ms]">
+            <ListTabs current={null} />
           </div>
         </div>
       </div>

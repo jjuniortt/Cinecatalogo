@@ -1,8 +1,5 @@
-"use client";
-
 import Link from "next/link";
-import { usePathname, useSearchParams } from "next/navigation";
-import { parseListParam } from "@/lib/list-types";
+import type { ListStatus } from "@/lib/list-types";
 
 const TABS = [
   { label: "Catálogo", href: "/", active: null },
@@ -10,19 +7,16 @@ const TABS = [
   { label: "Já assisti", href: "/?lista=assistido", active: "assistido" },
 ] as const;
 
-/** Abas da página inicial: Catálogo, Quero assistir e Já assisti. */
-export default function ListTabs() {
-  const pathname = usePathname();
-  const params = useSearchParams();
-
-  if (pathname !== "/") return null;
-
-  const current = parseListParam(params.get("lista"));
-
+/**
+ * Abas da página inicial: Catálogo, Quero assistir e Já assisti.
+ * A aba atual vem da página (já lida da URL no servidor), então o componente
+ * não precisa de JS no cliente.
+ */
+export default function ListTabs({ current }: { current: ListStatus | null }) {
   return (
     <nav
       aria-label="Seções da página inicial"
-      className="flex w-full gap-1 rounded-full border border-white/10 bg-black/40 p-1 backdrop-blur-md md:w-auto"
+      className="flex w-full gap-1 rounded-full border border-white/10 bg-black/40 p-1 backdrop-blur-md md:w-fit"
     >
       {TABS.map((tab) => {
         const isActive = tab.active === current;

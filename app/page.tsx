@@ -1,4 +1,5 @@
 import Hero from "@/components/Hero";
+import ListTabs from "@/components/ListTabs";
 import RatingFilter from "@/components/RatingFilter";
 import Row from "@/components/Row";
 import SavedList from "@/components/SavedList";
@@ -62,6 +63,10 @@ export default async function HomePage({
 
     return (
       <main className="relative z-10 px-6 pb-16 pt-28 md:px-12">
+        <div className="mb-8">
+          <ListTabs current={null} />
+        </div>
+
         <h1 className="mb-6 font-display text-3xl uppercase tracking-tight md:text-4xl">
           <span className="text-gradient">Filmes com nota </span>
           <span className="text-gradient-red">{minRating}+</span>
@@ -115,7 +120,13 @@ export default async function HomePage({
 
   return (
     <main>
-      {hero && <Hero movie={hero} />}
+      {hero ? (
+        <Hero movie={hero} />
+      ) : (
+        <div className="relative z-10 px-6 pt-28 md:px-12">
+          <ListTabs current={null} />
+        </div>
+      )}
 
       <div className="relative z-10 -mt-16 px-6 pb-16 md:px-12">
         <RatingFilter active={null} />

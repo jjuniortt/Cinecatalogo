@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { Suspense, useEffect, useState } from "react";
 import AccountMenu from "./AccountMenu";
-import ListTabs from "./ListTabs";
 import SearchBar from "./SearchBar";
 
 export default function Navbar() {
@@ -40,10 +39,6 @@ export default function Navbar() {
           Buscar
         </Link>
       </nav>
-
-      <Suspense fallback={null}>
-        <ListTabs />
-      </Suspense>
 
       <Suspense fallback={<div className="ml-auto h-11 w-[min(460px,42vw)]" />}>
         <SearchBar />
