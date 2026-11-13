@@ -22,7 +22,7 @@ export default function SearchBar() {
   return (
     <form
       onSubmit={submit}
-      className={`ml-auto flex w-[min(460px,44vw)] items-center gap-2.5 rounded-xl border bg-black/50 px-4 py-2.5 text-gray-300 backdrop-blur-md transition-all duration-300 ${
+      className={`flex min-w-0 flex-1 items-center gap-2 rounded-xl border bg-black/50 px-3 py-2.5 text-gray-300 backdrop-blur-md transition-all duration-300 md:ml-auto md:flex-none md:w-[min(460px,44vw)] md:gap-2.5 md:px-4 ${
         focused
           ? "border-netflix shadow-glow-soft"
           : "border-white/15 hover:border-white/30"

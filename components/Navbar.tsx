@@ -17,7 +17,7 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-40 flex flex-wrap items-center gap-x-4 gap-y-3 px-6 py-4 transition-all duration-300 md:gap-8 md:px-12 ${
+      className={`fixed inset-x-0 top-0 z-40 flex items-center gap-2.5 px-4 py-3 transition-all duration-300 sm:gap-4 md:gap-8 md:px-12 md:py-4 ${
         scrolled
           ? "border-b border-white/5 bg-base/80 py-3 shadow-lg backdrop-blur-xl"
           : "bg-gradient-to-b from-black/80 via-black/30 to-transparent"
@@ -25,7 +25,7 @@ export default function Navbar() {
     >
       <Link
         href="/"
-        className="font-display text-2xl tracking-wider transition-transform hover:scale-105 md:text-[1.7rem]"
+        className="shrink-0 font-display text-xl tracking-wider transition-transform hover:scale-105 sm:text-2xl md:text-[1.7rem]"
       >
         <span className="text-white">CINE</span>
         <span className="text-gradient-red">CATÁLOGO</span>
@@ -40,7 +40,7 @@ export default function Navbar() {
         </Link>
       </nav>
 
-      <Suspense fallback={<div className="ml-auto h-11 w-[min(460px,42vw)]" />}>
+      <Suspense fallback={<div className="min-w-0 flex-1 md:ml-auto md:w-[min(460px,42vw)] md:flex-none" />}>
         <SearchBar />
       </Suspense>
 
