@@ -35,7 +35,7 @@ export default function AccountMenu() {
     return (
       <Link
         href="/entrar"
-        className="shrink-0 rounded-md border border-white/25 bg-black/40 px-4 py-2 text-sm font-semibold text-white backdrop-blur-md transition-all hover:border-white/50 hover:bg-white/10"
+        className="shrink-0 rounded-md border border-white/25 bg-black/40 px-3 py-2 text-sm font-semibold text-white backdrop-blur-md transition-all hover:border-white/50 hover:bg-white/10 md:px-4"
       >
         Entrar
       </Link>
