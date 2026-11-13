@@ -14,7 +14,7 @@ export default function Hero({ movie }: { movie: Movie }) {
     // Fluxo normal + padding-top reservando a altura da navbar fixa: se o
     // conteúdo crescer (títulos longos, telas baixas), a seção cresce junto
     // em vez de o texto subir por baixo do cabeçalho.
-    <section className="relative flex min-h-[94vh] w-full flex-col justify-end overflow-hidden pt-32 md:pt-40">
+    <section className="relative flex min-h-[94vh] w-full flex-col justify-start overflow-hidden pt-28 md:justify-end md:pt-40">
       {/* Imagem com zoom cinematográfico lento (Ken Burns). */}
       {backdrop && (
         <div className="absolute inset-0 animate-slow-zoom">
@@ -44,16 +44,16 @@ export default function Hero({ movie }: { movie: Movie }) {
       {/* Conteúdo */}
       <div className="relative z-10">
         <div className="max-w-3xl px-6 pb-28 md:px-12 md:pb-32">
-          <div className="mb-6 inline-flex animate-fade-up items-center gap-2.5 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-white/90 backdrop-blur-md">
+          <div className="mb-8 inline-flex animate-fade-up items-center md:mb-6 gap-2.5 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-white/90 backdrop-blur-md">
             <span className="h-2 w-2 animate-pulse-dot rounded-full bg-netflix" />
             Em destaque na Netflix
           </div>
 
-          <h1 className="animate-fade-up font-display text-5xl uppercase leading-[0.95] tracking-tight drop-shadow-hero md:text-6xl lg:text-7xl xl:text-8xl [animation-delay:80ms]">
+          <h1 className="animate-fade-up font-display text-5xl uppercase leading-[1.08] tracking-tight md:leading-[0.95] drop-shadow-hero md:text-6xl lg:text-7xl xl:text-8xl [animation-delay:80ms]">
             {movie.title}
           </h1>
 
-          <div className="mt-5 flex animate-fade-up flex-wrap items-center gap-x-4 gap-y-2 text-[15px] font-medium [animation-delay:160ms]">
+          <div className="mt-6 flex animate-fade-up flex-wrap items-center gap-x-4 gap-y-2 text-[15px] font-medium [animation-delay:160ms] md:mt-5">
             <span className="font-bold text-relevant">{relevance}% relevante</span>
             {year && <span className="text-gray-300">{year}</span>}
             <span className="flex items-center gap-1 font-bold text-rating">
