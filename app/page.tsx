@@ -24,15 +24,17 @@ const RATING_VOTE_FLOOR = 100;
 export default async function HomePage({
   searchParams,
 }: {
-  searchParams: { nota?: string; lista?: string };
+  searchParams: Promise<{ nota?: string; lista?: string }>;
 }) {
+  const sp = await searchParams;
+
   // Abas "Quero assistir" / "Já assisti": lista do usuário, sem depender do TMDB.
-  const listStatus = parseListParam(searchParams?.lista);
+  const listStatus = parseListParam(sp?.lista);
   if (listStatus) return <SavedList status={listStatus} />;
 
   if (!hasCredentials()) return <SetupNotice />;
 
-  const minRating = parseRatingFilter(searchParams?.nota);
+  const minRating = parseRatingFilter(sp?.nota);
 
   // Modo filtrado: as mesmas categorias da home, cada uma só com os filmes
   // acima da nota escolhida.

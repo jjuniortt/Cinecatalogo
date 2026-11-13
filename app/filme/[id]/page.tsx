@@ -24,13 +24,14 @@ function minutesToHuman(min: number | null): string {
 export default async function MoviePage({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
   if (!hasCredentials()) return <SetupNotice />;
 
+  const { id } = await params;
   let movie;
   try {
-    movie = await getMovie(params.id);
+    movie = await getMovie(id);
   } catch {
     notFound();
   }

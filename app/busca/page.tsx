@@ -7,11 +7,12 @@ export const dynamic = "force-dynamic";
 export default async function SearchPage({
   searchParams,
 }: {
-  searchParams: { q?: string };
+  searchParams: Promise<{ q?: string }>;
 }) {
   if (!hasCredentials()) return <SetupNotice />;
 
-  const query = (searchParams.q ?? "").trim();
+  const { q } = await searchParams;
+  const query = (q ?? "").trim();
   const data = query
     ? await searchMovies(query)
     : { results: [], total_results: 0, page: 1, total_pages: 0 };
