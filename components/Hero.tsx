@@ -62,35 +62,37 @@ export default function Hero({ movie }: { movie: Movie }) {
               </svg>
               {rating}
             </span>
-            <span className="rounded border border-white/30 px-1.5 py-0.5 text-[11px] font-semibold tracking-wide text-gray-200">
-              4K ULTRA HD
-            </span>
-            <span className="rounded border border-white/30 px-1.5 py-0.5 text-[11px] font-semibold tracking-wide text-gray-200">
-              5.1
-            </span>
+            <div className="flex items-center gap-2 whitespace-nowrap">
+              <span className="rounded border border-white/30 px-1.5 py-0.5 text-[11px] font-semibold tracking-wide text-gray-200">
+                4K ULTRA HD
+              </span>
+              <span className="rounded border border-white/30 px-1.5 py-0.5 text-[11px] font-semibold tracking-wide text-gray-200">
+                5.1
+              </span>
+            </div>
           </div>
 
           <p className="mt-5 max-w-xl animate-fade-up text-[17px] leading-relaxed text-gray-200/90 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] line-clamp-3 [animation-delay:240ms]">
             {movie.overview || "Sem sinopse disponível."}
           </p>
 
-          <div className="mt-8 flex animate-fade-up flex-wrap gap-4 [animation-delay:320ms]">
+          <div className="mt-8 flex animate-fade-up gap-3 [animation-delay:320ms] md:gap-4">
             <Link
               href={`/filme/${movie.id}`}
-              className="group flex items-center gap-2.5 rounded-lg bg-white px-7 py-3.5 font-bold text-black shadow-xl transition-all duration-200 hover:scale-[1.03] hover:bg-white/90"
+              className="group flex flex-1 items-center justify-center gap-1.5 whitespace-nowrap rounded-lg bg-white px-3 py-3 text-sm font-bold text-black shadow-xl transition-all duration-200 hover:scale-[1.03] hover:bg-white/90 md:flex-none md:gap-2.5 md:px-7 md:py-3.5 md:text-base"
             >
-              <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current" aria-hidden>
+              <svg viewBox="0 0 24 24" className="h-4 w-4 fill-current md:h-5 md:w-5" aria-hidden>
                 <path d="M8 5v14l11-7z" />
               </svg>
               Assistir detalhes
             </Link>
             <Link
               href={`/filme/${movie.id}`}
-              className="flex items-center gap-2.5 rounded-lg border border-white/20 bg-white/10 px-7 py-3.5 font-bold text-white backdrop-blur-md transition-all duration-200 hover:scale-[1.03] hover:bg-white/20"
+              className="flex flex-1 items-center justify-center gap-1.5 whitespace-nowrap rounded-lg border border-white/20 bg-white/10 px-3 py-3 text-sm font-bold text-white backdrop-blur-md transition-all duration-200 hover:scale-[1.03] hover:bg-white/20 md:flex-none md:gap-2.5 md:px-7 md:py-3.5 md:text-base"
             >
               <svg
                 viewBox="0 0 24 24"
-                className="h-5 w-5 fill-current"
+                className="h-4 w-4 fill-current md:h-5 md:w-5"
                 aria-hidden
               >
                 <path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" />
